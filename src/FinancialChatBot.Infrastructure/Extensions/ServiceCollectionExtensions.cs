@@ -1,5 +1,6 @@
 using FinancialChatBot.Core.Interfaces;
 using FinancialChatBot.Infrastructure.Data;
+using FinancialChatBot.Infrastructure.Plugins;
 using FinancialChatBot.Infrastructure.Repositories;
 using FinancialChatBot.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +14,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddInfrastructure(
         this IServiceCollection services, IConfiguration configuration)
     {
-        // Azure SQL via Entity Framework Core
+        // ── Azure SQL via Entity Framework Core ──────────────────────────────
         services.AddDbContext<FinancialDbContext>(options =>
             options.UseSqlServer(
                 configuration.GetConnectionString("AzureSql"),
@@ -26,13 +27,18 @@ public static class ServiceCollectionExtensions
                     sqlOptions.CommandTimeout(30);
                 }));
 
-        // Repositories
+        // ── Repositories ─────────────────────────────────────────────────────
         services.AddScoped<IBankStatementRepository, BankStatementRepository>();
         services.AddScoped<ICapitalStructureRepository, CapitalStructureRepository>();
         services.AddScoped<IChatRepository, ChatRepository>();
 
-        // AI Foundry chat service
-        services.AddScoped<IFinancialChatService, FoundryAgentService>();
+        // ── Semantic Kernel Plugins ───────────────────────────────────────────
+        // Scoped so each request gets plugins sharing the same repository instances.
+        services.AddScoped<BankStatementPlugin>();
+        services.AddScoped<CapitalStructurePlugin>();
+
+        // ── AI Chat Service (Semantic Kernel) ─────────────────────────────────
+        services.AddScoped<IFinancialChatService, FinancialChatService>();
 
         return services;
     }
