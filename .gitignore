@@ -1,0 +1,71 @@
+## .NET / C#
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+bin/
+obj/
+.vs/
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## User Secrets (never commit)
+**/secrets.json
+**/appsettings.*.Local.json
+**/.env
+**/.env.*
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+## Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+## NuGet
+*.nuget/
+*.nupkg
+packages/
+!**/packages/repositories.config
+
+## Roslyn cache
+*.csx.cs
+
+## Visual Studio
+.vs/
+*.rsuser
+*.MoSoCache
+AutoSave/
+
+## Rider
+.idea/
+*.sln.iml
+
+## OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+## Publish output
+**/publish/
+**/PublishProfiles/
+
+## Azure
+.azure/
+ServiceFabricBackup/
