@@ -216,7 +216,38 @@ ChatBot/
 │       ├── Models/            # API request/response models
 │       ├── Program.cs         # App entry point + DI
 │       └── appsettings.json   # Configuration
+├── submodules/                # Git submodules (POC/spike)
+│   ├── poc-submodule-alpha/   # Shared utilities & components
+│   └── poc-submodule-beta/    # Shared config & assets
 └── scripts/
     ├── 01_CreateSchema.sql    # Azure SQL DDL
     └── 02_SeedData.sql        # Demo data
+```
+
+---
+
+## Git Submodules (POC/Spike)
+
+This repository includes two git submodules demonstrating a multi-repo structure:
+
+| Submodule | Path | Description |
+|-----------|------|-------------|
+| `poc-submodule-alpha` | `submodules/poc-submodule-alpha` | Shared utilities and reusable components |
+| `poc-submodule-beta` | `submodules/poc-submodule-beta` | Shared configuration files and common assets |
+
+### Working with Submodules
+
+**Clone with submodules:**
+```bash
+git clone --recurse-submodules <repo-url>
+```
+
+**Initialize submodules after cloning:**
+```bash
+git submodule update --init --recursive
+```
+
+**Update submodules to latest:**
+```bash
+git submodule update --remote --merge
 ```

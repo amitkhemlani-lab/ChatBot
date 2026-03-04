@@ -1,0 +1,6 @@
+[submodule "submodules/poc-submodule-alpha"]
+	path = submodules/poc-submodule-alpha
+	url = file:///tmp/poc-submodule-repos/poc-submodule-alpha.git
+[submodule "submodules/poc-submodule-beta"]
+	path = submodules/poc-submodule-beta
+	url = file:///tmp/poc-submodule-repos/poc-submodule-beta.git
