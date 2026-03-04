@@ -1,0 +1,8 @@
+[submodule "submodules/poc-submodule-alpha"]
+	path = submodules/poc-submodule-alpha
+	url = file:///tmp/poc-submodule-repos/poc-submodule-alpha.git
+	branch = 8299771e54786e5afc46c4dfa2b69fb909172c50
+[submodule "submodules/poc-submodule-beta"]
+	path = submodules/poc-submodule-beta
+	url = file:///tmp/poc-submodule-repos/poc-submodule-beta.git
+	branch = d6ec398f77fd5a6a96af85a4ba1bc982dcb0667b
